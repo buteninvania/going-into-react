@@ -1,0 +1,13 @@
+.header {
+    grid-area: h;
+    display: flex;
+    background-color: crimson;
+}
+.header img {
+    width: 150px;
+    padding: 20px;
+}
+p {
+    margin: 0;
+    padding-top: 8%;
+}

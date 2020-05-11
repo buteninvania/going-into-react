@@ -1,0 +1,12 @@
+.nav {
+    grid-area: n;
+    padding-left: 20px;
+    background-color: coral;
+}
+.nav a {
+    text-decoration: none;
+    color: black;
+}
+.nav div {
+    padding-top: 5px;
+} 
