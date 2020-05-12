@@ -2,6 +2,7 @@
     grid-area: n;
     padding-left: 20px;
     background-color: coral;
+    height: 100%;
 }
 .nav a {
     text-decoration: none;

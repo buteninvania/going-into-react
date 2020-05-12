@@ -1,0 +1,19 @@
+.wall {
+    padding-top: 40px;
+    padding-left: 20px; 
+    padding-right: 20px;    
+}
+.addPost {
+    border: 2px solid #ccc;
+    padding: 20px;
+}
+.addPost div{
+    padding: 20px;
+}
+.addPost textarea {
+    width: 75%;
+    height: 30px;
+}
+.addPost button {
+    margin-left: 20px;
+}

@@ -1,0 +1,20 @@
+
+.item {
+    border: 2px solid #ccc;
+    padding: 20px;
+    display: flex;
+    margin-top: 40px;
+}
+.text {
+    padding-left: 30px;
+}
+.item img {
+    width: 150px;   
+    height: 150px;
+}
+.like {
+    align-self: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: aqua;
+}
