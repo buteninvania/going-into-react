@@ -1,13 +1,25 @@
 .nav {
     grid-area: n;
     padding-left: 20px;
-    background-color: coral;
-    height: 100%;
+    background-color: #403d3d;
+    min-height: 500px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 6px rgba(1,1,0,0.7);
 }
 .nav a {
     text-decoration: none;
-    color: black;
+    color: white;
+    text-shadow: 1px 1px 0px rgba(9, 3, 3, 0.8);
+    font-size: 23px;
 }
+
+.nav a:hover {
+    color: #efd26f;
+}
+
 .nav div {
-    padding-top: 5px;
-} 
+    padding-top: 15px;
+}
+.nav .active {
+    color: gold;
+}
