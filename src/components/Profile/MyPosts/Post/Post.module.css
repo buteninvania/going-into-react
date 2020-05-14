@@ -1,21 +1,40 @@
 
 .item {
-    border: 2px solid #ccc;
-    padding: 20px;
+    background-color: #eae9e9;
+    border: 1px solid #e5dddd;
+    box-shadow: 2px 4px 2px rgba(1,1,0,0.7);
+    text-shadow: 1px 1px 0px rgba(9, 3, 3, 0.8);
+    border-radius: 10px;
     display: flex;
     margin-top: 40px;
+    height: 100px;
 }
 .text {
-    padding-left: 30px;
+    padding-left: 15px;
+    padding-top: 20px;
 }
 .item img {
-    width: 150px;   
-    height: 150px;
+    width: 80px;
+    height: 80px;
+    margin: 8px;
+    border: 1px solid #e5dddd;
+    box-shadow: 2px 4px 2px rgba(1,1,0,0.7);
+    text-shadow: 1px 1px 0px rgba(9, 3, 3, 0.8);
+    border-radius: 10px;
 }
 .like {
     align-self: center;
-    border: 1px solid #ccc;
+    border: 1px solid #e5dddd;
+    box-shadow: 2px 4px 2px rgba(1,1,0,0.7);
+    text-shadow: 1px 1px 0px rgba(9, 3, 3, 0.8);
+    border-radius: 10px;
     padding: 5px;
-    background-color: aqua;
-    margin-top:110px;
+    background-color: #efefef;
+    margin-top:50px;
+    cursor: pointer;
+}
+
+.like:hover {
+    background-color: #eab905;
+    border: 0;
 }
