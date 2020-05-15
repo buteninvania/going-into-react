@@ -1,0 +1,11 @@
+.friendsNav h2 {
+    margin-top: 20px;
+    margin-bottom: 0;
+    color: #efd26f;
+    text-shadow: 1px 1px 0px rgba(9, 3, 3, 0.8);
+}
+
+.friendsItem {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+}
