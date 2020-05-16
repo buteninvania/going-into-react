@@ -1,18 +1,17 @@
 import React from 'react';
-import p from "./profile.module.css";
 import MyPosts from './MyPosts/MyPosts';
 import AvatarDescription from "./AvatarDescription/AvatarDescription";
 
 
 
-const Content = (props) => {
+const Profile = (props) => {
 
     return (
         <div>
             <AvatarDescription/>
-            <MyPosts postData = {props.state.postData}/>
+            <MyPosts postData = {props.state.postData} newPostText = {props.state.newPostText} addPost={props.addPost} updatePostChange={props.updatePostChange} />
         </div>
     );
 }
 
-export default Content;
+export default Profile;
