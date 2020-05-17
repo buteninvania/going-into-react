@@ -9,7 +9,9 @@ const Profile = (props) => {
     return (
         <div>
             <AvatarDescription/>
-            <MyPosts postData = {props.state.postData} newPostText = {props.state.newPostText} addPost={props.addPost} updatePostChange={props.updatePostChange} />
+            <MyPosts postData = {props.state.postData}
+                     newPostText = {props.state.newPostText}
+                     dispath={props.dispath} />
         </div>
     );
 }
