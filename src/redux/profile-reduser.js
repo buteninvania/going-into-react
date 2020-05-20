@@ -1,7 +1,13 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_POST_CHANGE = "UPDATE-POST-CHANGE";
 
-const profileReduser = (state, action) => {
+let initialState = {
+    postData: [{message: "Hi this is my first post", like: "24"},
+               {message: "Hi this is my first post", like: "24"},],
+    newPostText: 'Enter text...',
+};
+
+const profileReduser = (state= initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {message: state.newPostText, like: "1",};
