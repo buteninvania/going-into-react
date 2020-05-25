@@ -4,7 +4,7 @@ import Post from "./Post/Post"
 
 const MyPosts = (props) => {
     let state = props.profilePage;
-    let postElements = state.postData.map(m => <Post message={m.message} like={m.like}/>)
+    let postElements = state.postData.map(m => <Post message={m.message} key={m.id} like={m.like}/>)
     let newPostElement = React.createRef();
     let addPost = () => props.addPost();
     let onPostChange = () => {

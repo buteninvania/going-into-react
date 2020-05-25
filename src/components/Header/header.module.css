@@ -1,11 +1,19 @@
 .header {
     grid-area: h;
     display: flex;
+    align-items: center;
     background-color: #eee1e1;;
     margin-top: 5px;
     border-radius: 10px;
     box-shadow: 1px 2px 6px rgba(1,1,0,0.7);
+    justify-content: space-between;
 }
+
+.avatar {
+    display: flex;
+    align-items: center;
+}
+
 .avatar img {
     width: 210px;
     height: 280px;
@@ -16,7 +24,6 @@
 .text {
     padding: 10px;
     height: 25px;
-    margin-top: 12%;
     margin-left: 10px;
     text-shadow: 1px 1px 0px rgba(9, 3, 3, 0.8);
     box-shadow: 1px 3px 4px rgba(1,1,0,0.7);
@@ -29,3 +36,17 @@
     background-color: #eab905;
     box-shadow: 1px 1px 1px rgba(1,1,0,0.4);
 }
+
+
+
+.loginBlock {
+    align-self: end;
+    margin: 20px;
+    text-shadow: 1px 1px 0px rgba(9, 3, 3, 0.8);
+    box-shadow: 1px 3px 4px rgba(1,1,0,0.7);
+    border-radius: 4px;
+    background-color: #4e4e43;
+    color: #ffffff;
+    padding: 10px;
+}
+

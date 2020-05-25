@@ -8,7 +8,7 @@ const Profile = (props) => {
 
     return (
         <div>
-            <AvatarDescription/>
+            <AvatarDescription profile={props.profile} />
             <MyPostsContainer />
         </div>
     );
