@@ -34,7 +34,7 @@ const messageReduser = (state = initialState, action) => {
     }
 }
 
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-export const updateMessageChangeActionCreator = (text) => ({type: UPDATE_MESSAGE_CHANGE, text: text})
+export const addMessage = () => ({type: ADD_MESSAGE})
+export const onMessageChange = (text) => ({type: UPDATE_MESSAGE_CHANGE, text: text})
 
 export default messageReduser;
