@@ -52,7 +52,7 @@ let mapStateToProps = (state) => {
 
 
 
-export default compose(
+export default compose (
     witchAuthRedirect,
     connect(mapStateToProps, {followSuccess, unFollowSuccess, setCurrentPage, getUsers, follow, unFollow,})
 )
