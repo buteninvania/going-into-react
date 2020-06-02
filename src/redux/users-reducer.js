@@ -84,7 +84,7 @@ export const setButtonDisable = (followingInProgress, userID) => ({
 export const getUsers = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(setIsFetching(true));
-
+        dispatch(setCurrentPage(currentPage));
         usersAPI.getUsers(currentPage, pageSize).then(data => {
 
             dispatch(setIsFetching(false));

@@ -8,8 +8,14 @@ import {
     unFollowSuccess,
 } from "../../redux/users-reducer";
 import Preloader from "../commons/Preloader/Preloader";
-import {witchAuthRedirect} from "../../hoc/authRedirect";
 import {compose} from "redux";
+import {
+    getCurrentPage,
+    getFollowingInProgress,
+    getIsFetching,
+    getPageSize,
+    getTotalUsersCounts, getUsersState
+} from "../../redux/users-selectors";
 
 
 
@@ -39,22 +45,30 @@ class UsersContainer extends React.Component {
 
 }
 
+// let mapStateToProps = (state) => {
+//     return {
+//         users: state.usersPage.users,
+//         pageSize: state.usersPage.pageSize,
+//         totalUsersCounts: state.usersPage.totalUsersCounts,
+//         currentPage: state.usersPage.currentPage,
+//         isFetching: state.usersPage.isFetching,
+//         followingInProgress: state.usersPage.followingInProgress
+//     }
+// }
+
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCounts: state.usersPage.totalUsersCounts,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
+        users: getUsersState(state),
+        pageSize: getPageSize(state),
+        totalUsersCounts: getTotalUsersCounts(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state),
     }
 }
 
 
 
-export default compose (
-    witchAuthRedirect,
-    connect(mapStateToProps, {followSuccess, unFollowSuccess, setCurrentPage, getUsers, follow, unFollow,})
-)
+export default compose (connect(mapStateToProps, {followSuccess, unFollowSuccess, setCurrentPage, getUsers, follow, unFollow,}))
 (UsersContainer);
 
