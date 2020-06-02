@@ -1,7 +1,7 @@
 import {NavLink} from "react-router-dom";
 import React from "react";
 import s from "./users.module.css";
-import urlPhoto from "../../img/computer-icons-user-profile-clip-art-png-favpng-5c0bJPDhifwVUMpsCcT9yXUJw.jpg";
+import urlPhoto from "../commons/img/computer-icons-user-profile-clip-art-png-favpng-5c0bJPDhifwVUMpsCcT9yXUJw.jpg";
 
 
 const Users = (props) => {

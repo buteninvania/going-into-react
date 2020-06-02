@@ -43,4 +43,11 @@
     text-shadow: 2px 2px 0px rgba(9, 3, 3, 0.8);
     width: 100%;
 }
+.statusUser {
+    color: #eab905;
+}
+
+.statusUser:hover {
+    cursor: pointer;
+}
 

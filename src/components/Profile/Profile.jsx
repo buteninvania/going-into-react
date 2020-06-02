@@ -4,11 +4,12 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
 
+
 const Profile = (props) => {
 
     return (
         <div>
-            <AvatarDescription profile={props.profile} />
+            <AvatarDescription profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
             <MyPostsContainer />
         </div>
     );

@@ -1,12 +1,15 @@
 import React from 'react';
 import p from "./avatarDescription.module.css";
-import Preloader from "../../Preloader/Preloader";
+import Preloader from "../../commons/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
+
 
 
 const AvatarDescription = (props) => {
     if (!props.profile) {
         return <Preloader />
     }
+
     return (
         <div>
             <div className={p.wallImage}>
@@ -17,7 +20,7 @@ const AvatarDescription = (props) => {
                 <img alt="avatar" src={props.profile.photos.large}/>
                 <div className={p.discription}>
                     <div className={p.fullName}>{props.profile.fullName}</div>
-                    <div className={p.statusUser}>{props.profile.aboutMe}</div>
+                    <div><ProfileStatus status={props.status} updateStatus={props.updateStatus} /></div>
                     <div className={p.contactsUser}>В контакте: {props.profile.contacts.vk}</div>
                 </div>
 

@@ -7,7 +7,7 @@ import {
     setCurrentPage, unFollow,
     unFollowSuccess,
 } from "../../redux/users-reducer";
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../commons/Preloader/Preloader";
 import {witchAuthRedirect} from "../../hoc/authRedirect";
 import {compose} from "redux";
 

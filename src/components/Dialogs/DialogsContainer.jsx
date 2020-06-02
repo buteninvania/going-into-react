@@ -1,5 +1,5 @@
 import React from "react";
-import {addMessage, onMessageChange,} from "../../redux/message-reduser";
+import {addMessageAC} from "../../redux/message-reduser";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {witchAuthRedirect} from "../../hoc/authRedirect";
@@ -15,6 +15,12 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default compose(connect
-                        (mapStateToProps,{addMessage, onMessageChange}),
-                         witchAuthRedirect)(Dialogs);
+let mapDispatchTProps = (dispatch) => {
+    return {
+        addMessage: (newMessageText) => {
+            dispatch(addMessageAC(newMessageText));
+        },
+    }
+}
+
+export default compose(connect(mapStateToProps,mapDispatchTProps), witchAuthRedirect)(Dialogs);

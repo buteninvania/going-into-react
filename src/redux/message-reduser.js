@@ -1,5 +1,5 @@
 const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_MESSAGE_CHANGE = "UPDATE-MESSAGE-CHANGE";
+
 
 let initialState = {
     messageData: [{id: 1, message: "Hi" },
@@ -11,22 +11,15 @@ let initialState = {
         {name: "Katy", id: 4, urlImg: "https://sun9-5.userapi.com/c855020/v855020899/226ab5/6vxTwkqdk78.jpg"},
         {name: "Anna", id: 5, urlImg: "https://sun9-58.userapi.com/c858216/v858216788/d19d8/eu8o4c8Wsp8.jpg?ava=1"},
     ],
-    newMessageText: 'Hi',
 };
 
 const messageReduser = (state = initialState, action) => {
 
     switch (action.type) {
-        case UPDATE_MESSAGE_CHANGE:
-            return {
-                ...state,
-                newMessageText: action.text,
-            };
         case ADD_MESSAGE:
-            let text = state.newMessageText;
+            let text = action.newMessageText;
             return {
                 ...state,
-                newMessageText: "",
                 messageData: [...state.messageData, {id:3, message:text}],
             };
         default:
@@ -34,7 +27,6 @@ const messageReduser = (state = initialState, action) => {
     }
 }
 
-export const addMessage = () => ({type: ADD_MESSAGE})
-export const onMessageChange = (text) => ({type: UPDATE_MESSAGE_CHANGE, text: text})
+export const addMessageAC = (newMessageText) => ({type: ADD_MESSAGE, newMessageText:newMessageText})
 
 export default messageReduser;
