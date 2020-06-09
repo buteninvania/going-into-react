@@ -50,4 +50,16 @@
     padding: 10px;
 }
 
+.loginBlock:hover {
+    background: #eab905;
+}
 
+.loginBlock a {
+    color: #eee1e1;
+    text-shadow: 1px 1px 0px rgba(9, 3, 3, 0.8);
+    text-decoration: none;
+}
+
+.loginBlock a:hover {
+    text-shadow: 1px 1px 0px rgba(9, 3, 3, 0.8);
+}

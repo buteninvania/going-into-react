@@ -11,7 +11,6 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
 import {connect} from "react-redux";
-
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reduser";
 import Preloader from "./components/commons/Preloader/Preloader";
@@ -22,11 +21,10 @@ class App extends React.Component {
     }
 
     render() {
-        if(!this.props.initialized) {
+        if (!this.props.initialized) {
             return <Preloader/>
         }
         return (
-
             <div className='app-wrapper'>
                 <HeaderContainer/>
                 <Nav/>

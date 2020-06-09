@@ -1,4 +1,4 @@
-const ADD_MESSAGE = "ADD-MESSAGE";
+const ADD_MESSAGE = "ButInProject/message/ADD-MESSAGE";
 
 
 let initialState = {

@@ -1,6 +1,6 @@
 import {getAuthUserData} from "./auths-reduser";
 
-const INITIALIZED_SUCCESS = "INITIALIZED_SUCCESS";
+const INITIALIZED_SUCCESS = "ButInProject/app/INITIALIZED_SUCCESS";
 
 
 let initialState = {

@@ -1,0 +1,24 @@
+.selectedPage {
+    font-weight: bold;
+    margin-right: 4px;
+    border: 1px solid #232121;
+    box-shadow: 2px 4px 2px rgba(1,1,0,0.7);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.currentsPage{
+    margin-right: 4px;
+    font-size: 6px;
+    border: 1px solid #232121;
+    padding: 4px;
+    box-shadow: 2px 4px 2px rgba(1,1,0,0.7);
+    border-radius: 4px;
+}
+.currentsPage:hover{
+    font-size: 17px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+.currentsPageList {
+    margin: 0px auto;
+}

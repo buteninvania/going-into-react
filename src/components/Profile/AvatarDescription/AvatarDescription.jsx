@@ -1,7 +1,7 @@
 import React from 'react';
 import p from "./avatarDescription.module.css";
 import Preloader from "../../commons/Preloader/Preloader";
-import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
 
@@ -20,7 +20,7 @@ const AvatarDescription = (props) => {
                 <img alt="avatar" src={props.profile.photos.large}/>
                 <div className={p.discription}>
                     <div className={p.fullName}>{props.profile.fullName}</div>
-                    <div><ProfileStatus status={props.status} updateStatus={props.updateStatus} /></div>
+                    <div><ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} /></div>
                     <div className={p.contactsUser}>В контакте: {props.profile.contacts.vk}</div>
                 </div>
 
