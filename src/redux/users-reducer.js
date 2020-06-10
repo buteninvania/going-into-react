@@ -12,7 +12,7 @@ const FOLLOWING_IN_PROGRESS = "ButInProject/users/FOLLOWING_IN_PROGRESS";
 
 let initialState = {
     users: [],
-    pageSize: 100,
+    pageSize: 5,
     totalUsersCounts: 3,
     currentPage: 1,
     isFetching: true,

@@ -3,19 +3,10 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import store from "./redux/redux-store";
-import {Provider} from "react-redux";
-import {BrowserRouter} from "react-router-dom";
+import ButInProjectApp from "./App";
 
 
-ReactDOM.render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <App/>
-        </BrowserRouter>
-    </Provider>,
-    document.getElementById('root'));
+ReactDOM.render(<ButInProjectApp />, document.getElementById('root'));
 
 
 // If you want your app to work offline and load faster, you can change
