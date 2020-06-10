@@ -1,31 +1,31 @@
 {
   "files": {
     "main.css": "/going-into-react/static/css/main.88781ee2.chunk.css",
-    "main.js": "/going-into-react/static/js/main.2d1a9a5a.chunk.js",
-    "main.js.map": "/going-into-react/static/js/main.2d1a9a5a.chunk.js.map",
-    "runtime-main.js": "/going-into-react/static/js/runtime-main.f55ac258.js",
-    "runtime-main.js.map": "/going-into-react/static/js/runtime-main.f55ac258.js.map",
-    "static/js/2.1f942dd1.chunk.js": "/going-into-react/static/js/2.1f942dd1.chunk.js",
-    "static/js/2.1f942dd1.chunk.js.map": "/going-into-react/static/js/2.1f942dd1.chunk.js.map",
+    "main.js": "/going-into-react/static/js/main.8246e9da.chunk.js",
+    "main.js.map": "/going-into-react/static/js/main.8246e9da.chunk.js.map",
+    "runtime-main.js": "/going-into-react/static/js/runtime-main.a46b669b.js",
+    "runtime-main.js.map": "/going-into-react/static/js/runtime-main.a46b669b.js.map",
+    "static/js/2.927d5c65.chunk.js": "/going-into-react/static/js/2.927d5c65.chunk.js",
+    "static/js/2.927d5c65.chunk.js.map": "/going-into-react/static/js/2.927d5c65.chunk.js.map",
     "static/css/3.2014fe14.chunk.css": "/going-into-react/static/css/3.2014fe14.chunk.css",
     "static/js/3.f7a82b8e.chunk.js": "/going-into-react/static/js/3.f7a82b8e.chunk.js",
     "static/js/3.f7a82b8e.chunk.js.map": "/going-into-react/static/js/3.f7a82b8e.chunk.js.map",
     "static/css/4.7410428c.chunk.css": "/going-into-react/static/css/4.7410428c.chunk.css",
-    "static/js/4.6426d26e.chunk.js": "/going-into-react/static/js/4.6426d26e.chunk.js",
-    "static/js/4.6426d26e.chunk.js.map": "/going-into-react/static/js/4.6426d26e.chunk.js.map",
+    "static/js/4.2fb1a6c8.chunk.js": "/going-into-react/static/js/4.2fb1a6c8.chunk.js",
+    "static/js/4.2fb1a6c8.chunk.js.map": "/going-into-react/static/js/4.2fb1a6c8.chunk.js.map",
     "index.html": "/going-into-react/index.html",
-    "precache-manifest.b4920ddc5efe71a9070713446c96921d.js": "/going-into-react/precache-manifest.b4920ddc5efe71a9070713446c96921d.js",
+    "precache-manifest.f61ea09afdb8be94c649d096fd53017a.js": "/going-into-react/precache-manifest.f61ea09afdb8be94c649d096fd53017a.js",
     "service-worker.js": "/going-into-react/service-worker.js",
     "static/css/3.2014fe14.chunk.css.map": "/going-into-react/static/css/3.2014fe14.chunk.css.map",
     "static/css/4.7410428c.chunk.css.map": "/going-into-react/static/css/4.7410428c.chunk.css.map",
     "static/css/main.88781ee2.chunk.css.map": "/going-into-react/static/css/main.88781ee2.chunk.css.map",
-    "static/js/2.1f942dd1.chunk.js.LICENSE.txt": "/going-into-react/static/js/2.1f942dd1.chunk.js.LICENSE.txt",
+    "static/js/2.927d5c65.chunk.js.LICENSE.txt": "/going-into-react/static/js/2.927d5c65.chunk.js.LICENSE.txt",
     "static/media/computer-icons-user-profile-clip-art-png-favpng-5c0bJPDhifwVUMpsCcT9yXUJw.jpg": "/going-into-react/static/media/computer-icons-user-profile-clip-art-png-favpng-5c0bJPDhifwVUMpsCcT9yXUJw.b7880ba6.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f55ac258.js",
-    "static/js/2.1f942dd1.chunk.js",
+    "static/js/runtime-main.a46b669b.js",
+    "static/js/2.927d5c65.chunk.js",
     "static/css/main.88781ee2.chunk.css",
-    "static/js/main.2d1a9a5a.chunk.js"
+    "static/js/main.8246e9da.chunk.js"
   ]
 }
