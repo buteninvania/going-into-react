@@ -1,6 +1,6 @@
 import React from 'react';
 import Profile from "./Profile";
-import {getStatus, getUserProfile, savePhoto, updateStatus} from "../../redux/profile-reduser";
+import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from "../../redux/profile-reduser";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {witchAuthRedirect} from "../../hoc/authRedirect";
@@ -51,7 +51,7 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto}),
+    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto, saveProfile}),
     withRouter,
     witchAuthRedirect
 )(ProfileContainer);

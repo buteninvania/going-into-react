@@ -1,4 +1,3 @@
-
 .formControl.error input,
 .formControl.error textarea
 {
@@ -13,5 +12,5 @@
     border: 1px solid red;
     padding: 5px;
     color: #eee1e1;
-    width: 20%;
+    width: 50%;
 }
