@@ -9,7 +9,7 @@ const SAVE_PHOTO_SUCCESS = "ButInProject/profile/SAVE-PHOTO-SUCCESS";
 
 let initialState = {
     postData: [{message: "Hi this is my first post", like: 24, id: 1},
-               {message: "Hi this is my first post", like: 24, id: 2},],
+        {message: "Hi this is my first post", like: 24, id: 2},],
     profile: null,
     status: "",
 };
@@ -63,10 +63,13 @@ export const getStatus = (userId) => async (dispatch) => {
     dispatch(setStatus(response.data));
 }
 export const updateStatus = (status) => async (dispatch) => {
+
     let response = await profileAPI.updateStatus(status);
     if (response.data.resultCode === 0) {
         dispatch(setStatus(status));
     }
+
+
 }
 export const savePhoto = (file) => async (dispatch) => {
     let response = await profileAPI.savePhoto(file);
@@ -80,7 +83,7 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     if (response.data.resultCode === 0) {
         dispatch(getUserProfile(userId));
     } else {
-        dispatch(stopSubmit("editProfile", {_error: response.data.messages[0]} ));
+        dispatch(stopSubmit("editProfile", {_error: response.data.messages[0]}));
         return Promise.reject(response.data.messages[0]);
     }
 }

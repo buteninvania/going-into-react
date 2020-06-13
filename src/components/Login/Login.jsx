@@ -10,12 +10,14 @@ import f from "./../commons/FormsControls/FormsControls.module.css"
 
 
 const LoginForm = (props) => {
- debugger;
     return (
         <form onSubmit={props.handleSubmit}>
             {createField("email", [requiredField], Input,"Email")}
             {createField("password", [requiredField], Input,"Password", "password")}
             {createField("rememberMe", "", Input,"", "checkbox", "remember me")}
+
+            {props.captcha && <img src={props.captcha}/> }
+            {props.captcha && createField("captcha", [requiredField], Input,"Symbols")}
 
             { props.error && <div className={f.formSummaryError}>{props.error}</div>}
             <div>
@@ -31,21 +33,21 @@ const LoginReduxForm = reduxForm({form: 'login',})(LoginForm);
 const Login = (props) => {
 
     const onSubmit = (formData) => {
-        debugger;
-        props.login(formData.email, formData.password, formData.rememberMe)
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
 
     if(props.isAuth) {
         return <Redirect to={"/profile"} />
     }
-
+debugger;
     return <div>
         <h1>Login</h1>
-        <LoginReduxForm onSubmit={onSubmit} />
+        <LoginReduxForm captcha={props.captchaUrl} onSubmit={onSubmit} />
     </div>
 }
 
 let mapStateToProps = (state) => ({
+    captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth
 })
 
