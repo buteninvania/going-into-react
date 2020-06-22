@@ -3,9 +3,8 @@ import {connect} from "react-redux";
 import Users from "./Users";
 import {
     follow,
-    followSuccess, getUsers,
-    setCurrentPage, unFollow,
-    unFollowSuccess,
+    getUsers,
+    unFollow,
 } from "../../redux/users-reducer";
 import Preloader from "../commons/Preloader/Preloader";
 import {compose} from "redux";
@@ -16,21 +15,44 @@ import {
     getPageSize,
     getTotalUsersCounts, getUsersState
 } from "../../redux/users-selectors";
+import {UsersType} from "../../Types/types";
+import {AppStateType} from "../../redux/redux-store";
+
+type MapStatePropsType = {
+    currentPage: number
+    pageSize: number
+    isFetching: boolean
+    totalUsersCounts: number
+    users: Array<UsersType>
+    followingInProgress: Array<number>
+}
+type MapDispatchPropsType = {
+    unFollow: (userId: number) => void
+    follow: (userId: number) => void
+    getUsers: (currentPage: number, pageSize: number) => void
+}
+type OwnPropsType = {
+    title: string
+}
 
 
+type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
 
-class UsersContainer extends React.Component {
+class UsersContainer extends React.Component<PropsType> {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        const {currentPage, pageSize} = this.props;
+        this.props.getUsers(currentPage, pageSize);
     };
 
-    onPageChanged = (currentPage) => {
-        this.props.getUsers(currentPage, this.props.pageSize);
+    onPageChanged = (currentPage: number) => {
+        const {pageSize} = this.props
+        this.props.getUsers(currentPage, pageSize);
     };
 
     render() {
         return <>
+            <div>{this.props.title}</div>
             {this.props.isFetching === true ? <Preloader/> : false}
             <Users totalUsersCounts={this.props.totalUsersCounts}
                    pageSize={this.props.pageSize}
@@ -42,11 +64,9 @@ class UsersContainer extends React.Component {
                    followingInProgress={this.props.followingInProgress}/>
         </>
     }
-
 }
 
-
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         users: getUsersState(state),
         pageSize: getPageSize(state),
@@ -57,8 +77,8 @@ let mapStateToProps = (state) => {
     }
 }
 
-
-
-export default compose (connect(mapStateToProps, {followSuccess, unFollowSuccess, setCurrentPage, getUsers, follow, unFollow,}))
+export default compose(
+    connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>
+    (mapStateToProps, {getUsers, follow, unFollow,}))
 (UsersContainer);
 

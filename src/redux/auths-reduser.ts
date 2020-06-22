@@ -1,4 +1,4 @@
-import {authAPI, securityhAPI} from "../api/api";
+import {authAPI, ResaultCodesEnum, securityhAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = "ButInProject/auth/SET-USER-DATA";
@@ -15,7 +15,6 @@ let initialState = {
 export type InitialStateType = typeof initialState;
 
 const authsReduser = (state = initialState, action:any): InitialStateType => {
-
     switch (action.type) {
         case SET_USER_DATA:
         case SET_CAPTCHA_URL:
@@ -55,24 +54,23 @@ export const setCaptchaUrl = (captchaUrl:string):SetCaptchaUrlActionType => ({
 })
 
 export const getAuthUserData = () => async (dispatch:any) => {
-    let response = await authAPI.checkAuth();
-
-    if (response.data.resultCode === 0) {
-        let {id, login, email} = response.data.data;
+    let meData = await authAPI.checkAuth();
+    if (meData.resultCode === ResaultCodesEnum.Success) {
+        let {id, login, email} = meData.data;
         dispatch(setAuthUserData(id, login, email, true));
     }
 }
 
 export const login = (email:string, password:string, rememberMe:boolean, captcha:string) => async (dispatch:any) => {
-    let response = await authAPI.login(email, password, rememberMe, captcha);
+    let loginData = await authAPI.login(email, password, rememberMe, captcha);
 
-    if (response.data.resultCode === 0) {
+    if (loginData.resultCode === ResaultCodesEnum.Success) {
         dispatch(getAuthUserData())
     } else {
-        if (response.data.resultCode === 10) {
+        if (loginData.resultCode === ResaultCodesEnum.CaptchaIsRequired) {
             dispatch(getCaptchaUrl());
         }
-        let message = response.data.messages.length > 0 ? response.data.messages[0] : "some error";
+        let message = loginData.messages.length > 0 ? loginData.messages[0] : "some error";
         dispatch(stopSubmit("login", {_error: message}));
     }
 }
@@ -90,7 +88,5 @@ export const getCaptchaUrl = () => async (dispatch:any) => {
     const captchaUrl = response.data.url;
     dispatch(setCaptchaUrl(captchaUrl));
 }
-
-
 
 export default authsReduser;

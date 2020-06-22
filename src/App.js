@@ -20,7 +20,7 @@ const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileCo
 
 class App extends React.Component {
 
-    componentDidMount() { // срабатывает один раз когда компонента вмонтируется
+    componentDidMount() {
         this.props.initializeApp();
     }
 
@@ -40,7 +40,7 @@ class App extends React.Component {
                         <Route path='/news' render={() => <News/>}/>
                         <Route path='/music' render={() => <Music/>}/>
                         <Route path='/settings' render={() => <Settings/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
+                        <Route path='/users' render={() => <UsersContainer title={"Men"}/>}/>
                         <Route path='/login' render={() => <LoginPage/>}/>
                         <Route path='*' render={() => <div>NOT FOUND</div>}/>
                     </Switch>
@@ -56,9 +56,6 @@ const mapStateToProps = (state) => ({
 })
 
 let AppContainer = compose(withRouter, connect(mapStateToProps, {initializeApp}))(App);
-//HOC(компонента высшего порядка) - функция которая принемает одну компоненту и возвращает другую компоненту
-//connect - HOC для того чтобы дать данные из store
-//compose - один за одним изпользует HOC (withRouter, connect)
 
 const ButInProjectApp = (props) => {
     return <HashRouter>
