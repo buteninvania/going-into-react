@@ -1,24 +1,31 @@
 import React from 'react';
 import './App.css';
+import Preloader from "./components/commons/Preloader/Preloader";
 import Nav from './components/Nav/Nav';
-import {HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import UsersContainer from "./components/Users/UsersContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginPage from "./components/Login/Login";
-import {connect, Provider} from "react-redux";
-import {compose} from "redux";
-import {initializeApp} from "./redux/app-reduser";
-import Preloader from "./components/commons/Preloader/Preloader";
-import {witchSuspense} from "./hoc/witchSuspense";
-import store from "./redux/redux-store";
-
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
+import LoginPage from "./components/Login/Login";
+import UsersContainer from "./components/Users/UsersContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import {HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
+import {connect, Provider} from "react-redux";
+import store, {AppStateType} from "./redux/redux-store";
+import {compose} from "redux";
+import {witchSuspense} from "./hoc/witchSuspense";
+import {initializeApp} from "./redux/app-reduser";
 
-class App extends React.Component {
+type MapStateToPropsType = {
+    initialized: boolean
+}
+type MapDispatchToPropsType = {
+    initializeApp: () => void
+}
+type PropsType = MapStateToPropsType & MapDispatchToPropsType
+
+class App extends React.Component<PropsType> {
 
     componentDidMount() {
         this.props.initializeApp();
@@ -28,7 +35,7 @@ class App extends React.Component {
         if (!this.props.initialized) {
             return <Preloader/>
         }
-        return (  // главная роль компоненты вернуть JSX
+        return (
             <div className='app-wrapper'>
                 <HeaderContainer/>
                 <Nav/>
@@ -46,21 +53,22 @@ class App extends React.Component {
                     </Switch>
                 </div>
             </div>
-
         );
     }
 }
 
-const mapStateToProps = (state) => ({
-    initialized: state.app.initialized
-})
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
+    return {
+        initialized: state.app.initialized
+    }
+}
 
-let AppContainer = compose(withRouter, connect(mapStateToProps, {initializeApp}))(App);
+const AppContainer:any = compose(withRouter, connect(mapStateToProps, {initializeApp}))(App);
 
-const ButInProjectApp = (props) => {
+const ButInProjectApp = () => {
     return <HashRouter>
         <Provider store={store}>
-            <AppContainer/>
+            <AppContainer />
         </Provider>
     </HashRouter>
 
