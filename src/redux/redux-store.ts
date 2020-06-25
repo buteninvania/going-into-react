@@ -1,17 +1,17 @@
-import {applyMiddleware, combineReducers, compose, createStore} from "redux"
-import profileReduser from "./profile-reduser"
-import messageReduser from "./message-reduser"
-import userReduser from "./users-reducer"
-import authsReduser from "./auths-reduser"
+import {Action, applyMiddleware, combineReducers, compose, createStore} from "redux"
+import profileReducer from "./profile-reducer"
+import messageReducer from "./message-reducer"
+import userReducer from "./users-reducer"
+import authsReducer from "./auths-reducer"
 import {reducer as formReducer} from 'redux-form'
-import thunkMiddleware from "redux-thunk"
+import thunkMiddleware, {ThunkAction} from "redux-thunk"
 import appReducer from "./app-reduser"
 
 let rootReducer = combineReducers({
-    profilePage: profileReduser,
-    messagePage: messageReduser,
-    usersPage: userReduser,
-    auth: authsReduser,
+    profilePage: profileReducer,
+    messagePage: messageReducer,
+    usersPage: userReducer,
+    auth: authsReducer,
     form: formReducer,
     app: appReducer
 })
@@ -19,9 +19,9 @@ let rootReducer = combineReducers({
 type RootReducerType = typeof rootReducer
 export type AppStateType = ReturnType<RootReducerType>
 
-type PropertiesTypes<T> = T extends {[key: string]: infer U} ? U : never
-export type InferActionsTypes <T extends {[key: string]: (...args:any[])=>any}> = ReturnType<PropertiesTypes<T>>
+export type InferActionsTypes<T> = T extends {[key: string]: (...args: any[]) => infer U } ? U : never
 
+export type BaseThunkType<A extends Action, R = Promise<void>> = ThunkAction<R, AppStateType, unknown, A>
 // @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 // @ts-ignore

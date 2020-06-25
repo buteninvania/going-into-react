@@ -5,8 +5,6 @@ import Nav from './components/Nav/Nav';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
-const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 import LoginPage from "./components/Login/Login";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -16,6 +14,9 @@ import store, {AppStateType} from "./redux/redux-store";
 import {compose} from "redux";
 import {witchSuspense} from "./hoc/witchSuspense";
 import {initializeApp} from "./redux/app-reduser";
+// @ts-ignore
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 
 type MapStateToPropsType = {
     initialized: boolean

@@ -1,6 +1,5 @@
-import {GetItemsType, instance} from "./api";
+import {GetItemsType, instance, ResponseDataType} from "./api";
 import {profileAPI} from "./profile-api";
-
 
 
 export const usersAPI = {
@@ -11,10 +10,10 @@ export const usersAPI = {
             });
     },
     follow(userId: number) {
-        return instance.post(`follow/${userId}`)
+        return instance.post<ResponseDataType>(`follow/${userId}`).then(res => res.data)
     },
     unFollow(userId: number) {
-        return instance.delete(`follow/${userId}`)
+        return instance.delete(`follow/${userId}`).then(res => res.data) as Promise<ResponseDataType>
     },
     getProfile(userId: number) {
         console.warn("Please use profileAPI");

@@ -6,7 +6,7 @@ import {Redirect} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 import {TextArea} from "../commons/FormsControls/FormsControls";
 import {maxLengthCreator, requiredField} from "../../Utils/Validation/validators";
-import {DialogType, MessageType} from "../../redux/message-reduser";
+import {DialogType, MessageType} from "../../redux/message-reducer";
 
 type PropsType = {
     dialogs: Array<DialogType>,
@@ -15,7 +15,7 @@ type PropsType = {
     isAuth: boolean
 }
 type DialogsFormValuesType = {
-    newMessageText: string
+    newMessageText: any
 }
 type DialogsFormValuesKeysType = keyof DialogsFormValuesType
 
@@ -24,11 +24,12 @@ const Dialogs: React.FC<PropsType> = ({dialogs, messages, addMessage, isAuth}) =
     let messageElements = messages.map(m => (<MessageItem message={m.message} key={m.id}/>));
 
 
-    let addNewMessage = (newMessageText:string) => {
+    let addNewMessage = (newMessageText:any) => {
         addMessage(newMessageText);
     };
 
     if (isAuth === false) return <Redirect to={"/login"}/>
+    // @ts-ignore
     return (
         <div className={d.dialogues}>
             <div className={d.dialoguesItem}>
