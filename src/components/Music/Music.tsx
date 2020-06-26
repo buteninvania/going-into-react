@@ -1,7 +1,6 @@
-import React from "react";
-import mu from './Music.module.css'
+import React from "react"
 
-const Music = (props) => {
+const Music: React.FC = () => {
     return (
         <div>
             Music

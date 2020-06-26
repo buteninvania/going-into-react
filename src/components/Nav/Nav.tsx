@@ -1,10 +1,8 @@
-import React from 'react';
-import n from "./nav.module.css";
-import {NavLink} from "react-router-dom";
+import React from "react"
+import n from "./nav.module.css"
+import {NavLink} from "react-router-dom"
 
-
-const Nav = (props) => {
-
+const Nav: React.FC = () => {
     return (
         <nav className={n.nav}>
             <div><NavLink to="/profile" activeClassName={n.active}>Profile</NavLink></div>
@@ -13,9 +11,8 @@ const Nav = (props) => {
             {/*<div><NavLink to="/music" activeClassName={n.active}>Music</NavLink></div>*/}
             {/*<div><NavLink to="/settings" activeClassName={n.active}>Settings</NavLink></div>*/}
             <div><NavLink to="/users" activeClassName={n.active}>Users</NavLink></div>
-
         </nav>
-    );
+    )
 }
 
-export default Nav;
+export default Nav

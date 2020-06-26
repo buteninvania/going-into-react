@@ -27,7 +27,7 @@ const messageReducer = (state = initialState, action: ActionsType): InitialState
 }
 
 export const actions = {
-    addMessageAC: (newMessageText: string) => ({type: "ButInProject/message/ADD-MESSAGE", newMessageText} as const)
+    addMessage: (newMessageText: string) => ({type: "ButInProject/message/ADD-MESSAGE", newMessageText} as const)
 }
 
 export default messageReducer
