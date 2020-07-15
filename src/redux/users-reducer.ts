@@ -3,6 +3,7 @@ import { UsersType } from "../Types/types"
 import {BaseThunkType, InferActionsTypes} from "./redux-store"
 import {Dispatch} from "redux"
 import {usersAPI} from "../api/users-api"
+import {ResponseDataType} from "../api/api"
 
 const initialState = {
     users: [] as Array<UsersType>,
@@ -68,10 +69,10 @@ export const actions = {
     } as const)
 }
 
-const _followUnfollowFlow = async (dispatch: Dispatch<ActionsTypes>, userId: number, apiMethod: any, actionCreator: (userId: number) => ActionsTypes) => {
+const _followUnfollowFlow = async (dispatch: Dispatch<ActionsTypes>, userId: number, apiMethod: (userId: number) => Promise<ResponseDataType>, actionCreator: (userId: number) => ActionsTypes) => {
     dispatch(actions.setButtonDisable(true, userId))
     const response = await apiMethod(userId)
-    if (response.data.resultCode === 0) {
+    if (response.resultCode === 0) {
         dispatch(actionCreator(userId))
     }
     dispatch(actions.setButtonDisable(false, userId))
@@ -89,17 +90,17 @@ export const getUsers = (currentPage: number, pageSize: number): ThunkType => {
 }
 export const follow = (userId: number): ThunkType => {
     return async (dispatch) => {
-        _followUnfollowFlow(dispatch, userId, usersAPI.follow.bind(usersAPI), actions.followSuccess)
+        await _followUnfollowFlow(dispatch, userId, usersAPI.follow.bind(usersAPI), actions.followSuccess)
     }
 }
 export const unFollow = (userId: number): ThunkType => {
     return async (dispatch) => {
-        _followUnfollowFlow(dispatch, userId, usersAPI.unFollow.bind(usersAPI), actions.unFollowSuccess)
+        await _followUnfollowFlow(dispatch, userId, usersAPI.unFollow.bind(usersAPI), actions.unFollowSuccess)
     }
 }
 
 export default userReducer
 
-type InitialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 type ActionsTypes = InferActionsTypes<typeof actions>
 type ThunkType = BaseThunkType<ActionsTypes>
