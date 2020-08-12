@@ -11,8 +11,8 @@ import Nav from "./components/Nav/Nav"
 import News from "./components/News/News"
 import Music from "./components/Music/Music"
 import Settings from "./components/Settings/Settings"
-import LoginPage from "./components/Login/Login"
-import UsersContainer from "./components/Users/UsersContainer"
+import {Login} from "./components/Login/Login"
+import {UsersPage} from "./components/Users/UsersContainer"
 import HeaderContainer from "./components/Header/HeaderContainer"
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"))
@@ -41,8 +41,8 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
                         <Route path = "/news" render = {() => <News />} />
                         <Route path = "/music" render = {() => <Music />} />
                         <Route path = "/settings" render = {() => <Settings />} />
-                        <Route path = "/users" render = {() => <UsersContainer title = {"Users"} />} />
-                        <Route path = "/login" render = {() => <LoginPage />} />
+                        <Route path = "/users" render = {() => <UsersPage title = {"Users"} />} />
+                        <Route path = "/login" render = {() => <Login />} />
                         <Route path = "*" render = {() => <div> NOT FOUND </div>} />
                     </Switch>
                 </div>
